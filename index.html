@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Personal Reflection Slides</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Times New Roman', Times, serif; }
+body { overflow-x:hidden; line-height:1.6; background:#f5f5f5; }
+
+.slide {
+    width:100%;
+    height:100vh;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    padding:40px 20px;
+    text-align:center;
+    opacity:0;
+    transform:translateY(50px);
+    transition:all 0.8s ease;
+}
+.slide.active{
+    display:flex;
+    opacity:1;
+    transform:translateY(0);
+}
+
+.slide h1{ font-size:3rem; margin-bottom:20px; font-weight:bold; }
+.slide p{ margin-bottom:15px; font-size:1.1rem; }
+
+.nav-buttons{ margin-top:25px; }
+.nav-buttons button{
+    padding:12px 25px; margin:8px; border:none; border-radius:10px; cursor:pointer;
+    font-size:1.1rem; color:#fff; font-weight:bold;
+    transition:all 0.3s ease;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+.nav-buttons button:hover{ opacity:0.9; transform:translateY(-2px); }
+
+/* LOGIN */
+#loginSlide{
+    background:url("images/download.jpg") no-repeat center/cover;
+    color:#fff;
+}
+#loginForm{
+    background:#fff; color:#333; padding:35px; border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    width:100%; max-width:400px;
+    opacity:0; transform:translateY(50px); transition:all 0.8s ease;
+}
+#loginSlide.active #loginForm{ opacity:1; transform:translateY(0); }
+#loginForm input{
+    width:100%; padding:15px; margin-bottom:20px;
+    border-radius:10px; border:1px solid #ccc; font-size:1rem;
+}
+#loginForm input[type="submit"]{
+    background:#6C63FF; color:#fff; border:none; cursor:pointer;
+}
+#loginForm input[type="submit"]:hover{ background:#5751d1; }
+
+/* PERSONAL */
+#personalSlide{ background:linear-gradient(135deg,#fffbe6,#fff3cc); color:#333; }
+#personalSlide h1{ color:#FF9F1C; }
+
+.profile-image-container{ display:flex; justify-content:center; margin-bottom:25px; }
+.profile-image{
+    width:180px; height:180px; border-radius:50%; object-fit:cover;
+    border:5px solid #FF9F1C; box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    margin:10px;
+}
+
+.text-justify{
+    max-width:900px; margin:auto; text-align:justify; font-size:1.2rem; line-height:1.8;
+    background:#fff; padding:25px; border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.reflection{
+    background:#fff; border-left:6px solid #333; padding:25px;
+    margin:20px auto; max-width:900px; border-radius:15px; text-align:left;
+    opacity:0; transform:translateY(50px); transition:all 0.8s ease;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+.slide.active .reflection{ opacity:1; transform:translateY(0); }
+
+/* COMMUNITY */
+#communitySlide{ background:linear-gradient(135deg,#e6f0ff,#cce0ff); }
+#communitySlide h1{ color:#1E90FF; }
+#communitySlide .reflection{ border-left-color:#1E90FF; }
+
+/* INSPIRATIONAL */
+#inspirationalSlide{ background:linear-gradient(135deg,#e6ffe6,#ccffcc); }
+#inspirationalSlide h1{ color:#2E8B57; }
+#inspirationalSlide .reflection{ border-left-color:#2E8B57; }
+
+/* EDUCATIONAL */
+#educationalSlide{ background:linear-gradient(135deg,#fff0f5,#ffd6f0); }
+#educationalSlide h1{ color:#C71585; }
+#educationalSlide .reflection{ border-left-color:#C71585; }
+
+/* LAST */
+#lastSlide{ background:linear-gradient(135deg,#ffe6f0,#ffcce0); color:#C71585; }
+#lastSlide .reflection{ border-left-color:#C71585; text-align:center; }
+
+#personalSlide .nav-buttons button{ background:#FF9F1C; }
+#communitySlide .nav-buttons button{ background:#1E90FF; }
+#inspirationalSlide .nav-buttons button{ background:#2E8B57; }
+#educationalSlide .nav-buttons button{ background:#C71585; }
+#lastSlide .nav-buttons button{ background:#C71585; }
+</style>
+</head>
+<body>
+
+<div class="slide active" id="loginSlide">
+    <h1>Welcome!</h1>
+    <form id="loginForm">
+        <input type="text" id="username" placeholder="Username" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <input type="submit" value="Login" />
+    </form>
+</div>
+
+<div class="slide" id="personalSlide">
+    <h1>PERSONAL REFLECTION</h1>
+    <div class="profile-image-container">
+        <img src="images/vi.jpg" alt="Profile" class="profile-image" />
+    </div>
+    <div class="text-justify">
+        <p>This portfolio reflects my journey as a student, exploring the meaningful integration of faith, integrity, and responsible digital citizenship in my life. I use faith as a guiding principle to face challenges with hope, perseverance, and gratitude. It helps me stay grounded, make thoughtful decisions, and approach each day with purpose.</p>
+        <p>I use integrity to ensure that my actions are honest, accountable, and consistent. By aligning my choices with my values, I strive to build trust in my relationships and act with moral courage, both in academic settings and personal interactions. Integrity reminds me that even small decisions shape my character and the impact I have on others.</p>
+        <p>Also, I use responsible digital citizenship to engage ethically in online spaces. This involves protecting privacy, sharing information thoughtfully, and contributing positively to digital communities. By practicing these principles, I aim to navigate the digital world responsibly and foster a safe and respectful environment for myself and others.</p>
+    </div>
+    <div class="nav-buttons">
+        <button onclick="prevSlide()">Previous</button>
+        <button onclick="nextSlide()">Next</button>
+    </div>
+</div>
+
+<div class="slide" id="communitySlide">
+    <h1>Community Service</h1>
+    <div class="reflection">
+        <img src="images/d2.jpg" class="profile-image" />
+        <img src="images/d3.jpg" class="profile-image" />
+        <img src="images/pic.jpg" class="profile-image" />
+        <img src="images/d4.jpg" class="profile-image" />
+        <h3>1st Battalion 4th Delta</h3>
+        <p>September 7, 2025. Our Battalion had their first community service in Tangub City. We helped clean the city by removing wild plants.</p>
+        <p>September 14, 2025. 1st Battalion 4th Delta helped for a community service for the upcoming Fiesta. We were assigned from outside the school to Maigis Chicken Store.</p>
+    </div>
+    <div class="nav-buttons">
+        <button onclick="prevSlide()">Previous</button>
+        <button onclick="nextSlide()">Next</button>
+    </div>
+</div>
+
+<div class="slide" id="inspirationalSlide">
+    <h1>Inspirational Portfolio</h1>
+    <div class="reflection">
+        <p>I am Zhaira H. Abion, a BS Computer Science student at Tangub City Global College.</p>
+        <p>I've been in cloud 9 for a year and months now with the person i met in senior high school. </p>
+    </div>
+    <div class="reflection">
+        <img src="images/d5.jpg" class="profile-image" />
+        <img src="images/d7.jpg" class="profile-image" />
+        <img src="images/d8.jpg" class="profile-image" />
+        <img src="images/d9.jpg" class="profile-image" />
+        <p>My Goal is to improve my self physically, emotionally and mentally. I also want to improve my skills for the reason that I am taking computer science which needs focus and determination. I hope to improve my relationship with the people around me, giving them attention, love, and care they deserve from me.With him, i let God enter my life after all the things happened in my past. I want to get closer with God and build my faith</p>
+    </div>
+    <div class="nav-buttons">
+        <button onclick="prevSlide()">Previous</button>
+        <button onclick="nextSlide()">Next</button>
+    </div>
+</div>
+
+<div class="slide" id="educationalSlide">
+    <h1>Educational Portfolio</h1>
+    <div class="reflection">
+        <p>I interact with others online through social media, academic platforms, and digital projects, which reminds me that my actions have real effects on people. I practice online kindness by communicating respectfully, choosing my words carefully, and avoiding behavior that could harm or disrespect others. By doing this, I help create a positive and safe digital environment where everyone feels valued.</p>
+        <p>I also believe that honesty in digital creation is a responsibility I must uphold. When I create or share digital content, I make sure to give proper credit to original sources, avoid plagiarism, and share information that is accurate and truthful. I understand that misinformation can easily spread online, so I take time to verify what I post. Practicing honesty online helps me build trust and integrity, both academically and personally.</p>
+    </div>
+    <div class="nav-buttons">
+        <button onclick="prevSlide()">Previous</button>
+        <button onclick="nextSlide()">Next</button>
+    </div>
+</div>
+
+<div class="slide" id="lastSlide">
+    <h1>Faith and Technology</h1>
+    <div class="reflection">
+        <p>Technology can be used to spread positivity or spiritual messages online by allowing people to share meaningful content that inspires faith, hope, and kindness. Social media platforms, websites, and messaging apps make it easy to post inspirational quotes, short reflections, prayers, or Bible verses that can encourage others in their daily lives. Through simple posts or stories, positive and spiritual messages can reach many people and offer comfort, motivation, or guidance.</p>
+        <p>Also enables creativity in sharing spiritual content. Videos, podcasts, digital artwork, and blogs can communicate faith-based messages in engaging and relatable ways. Live streams of worship services, online prayer groups, and virtual faith discussions help people stay connected, especially when they cannot meet in person. When used responsibly, technology becomes a powerful tool for spreading positivity, strengthening spiritual growth, and building supportive online communities rooted in respect and compassion.</p>
+    </div>
+    <div class="nav-buttons">
+        <button onclick="prevSlide()">Previous</button>
+        <button onclick="logout()">Logout</button>
+    </div>
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+let currentSlide = 0;
+
+document.getElementById('loginForm').addEventListener('submit', e => {
+    e.preventDefault();
+    slides[currentSlide].classList.remove('active');
+    currentSlide = 1;
+    slides[currentSlide].classList.add('active');
+});
+
+function showSlide(index){
+    slides.forEach(s => s.classList.remove('active'));
+    slides[index].classList.add('active');
+}
+function nextSlide(){
+    if(currentSlide < slides.length - 1){ currentSlide++; showSlide(currentSlide); }
+}
+function prevSlide(){
+    if(currentSlide > 1){ currentSlide--; showSlide(currentSlide); }
+}
+function logout(){ currentSlide = 0; showSlide(currentSlide); }
+</script>
+
+</body>
+</html>
