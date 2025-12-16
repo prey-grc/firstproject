@@ -67,13 +67,17 @@ body { line-height:1.6; background:#f5f5f5; overflow-y:auto; scroll-behavior: sm
 .nav-buttons button{
     padding:12px 25px; margin:8px; border:none; border-radius:10px; cursor:pointer;
     font-size:1.1rem; color:#fff; font-weight:bold;
+    background: #6C63FF; /* visible purple background for good contrast */
     transition: all 0.3s ease;
     box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    appearance: none; /* standard appearance reset */
+    -webkit-appearance: none; /* better cross-browser appearance */
 }
-.nav-buttons button:hover { opacity:0.9; transform: translateY(-2px); }
+.nav-buttons button:hover { opacity:0.95; transform: translateY(-2px); background:#5751d1; }
+.nav-buttons button:focus { outline: 3px solid rgba(108,99,255,0.25); outline-offset:2px; }
 
 /* Slide Backgrounds */
-#loginSlide { background-image: url(download.jpg); background-repeat: no-repeat; background-size: cover; color:#fff; display:flex; justify-content:center; align-items:center; flex-direction:column; }
+#loginSlide { background-image: url(images/download.jpg); background-repeat: no-repeat; background-size: cover; color:#fff; display:flex; justify-content:center; align-items:center; flex-direction:column; }
 #loginForm {
     background:#fff; color:#333; padding:35px; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.3); width:100%; max-width:400px;
 }
@@ -130,7 +134,7 @@ body { line-height:1.6; background:#f5f5f5; overflow-y:auto; scroll-behavior: sm
 <div class="slide" id="personalSlide">
     <h1>PERSONAL REFLECTION</h1>
     <div class="profile-image-container">
-        <img src="vi.jpg" alt="Profile Image" class="profile-image">
+        <img src="images/vi.jpg" alt="Profile Image" class="profile-image">
     </div>
     <div class="text-justify fade">
         <p>This portfolio reflects my journey as a student, exploring the meaningful integration of faith, integrity, and responsible digital citizenship in my life. I use faith as a guiding principle to face challenges with hope, perseverance, and gratitude. It helps me stay grounded, make thoughtful decisions, and approach each day with purpose.</p>
@@ -146,10 +150,10 @@ body { line-height:1.6; background:#f5f5f5; overflow-y:auto; scroll-behavior: sm
 <div class="slide" id="communitySlide">
     <h1>Community Service</h1>
     <div class="reflection fade" style="transition-delay:0.4s;">
-        <img src="d2.jpg" alt="Image" class="profile-image">
-        <img src="d3.jpg" alt="Image" class="profile-image">
-        <img src="pic.jpg" alt="Image" class="profile-image">
-        <img src="d4.jpg" alt="Image" class="profile-image">
+        <img src="images/d2.jpg" alt="Image" class="profile-image">
+        <img src="images/d3.jpg" alt="Image" class="profile-image">
+        <img src="images/pic.jpg" alt="Image" class="profile-image">
+        <img src="images/d4.jpg" alt="Image" class="profile-image">
 
         <h3>1st Battalion 4th Delta</h3>
         <p>September 7, 2025. Our Battalion had their first community service in Tangub City. We helped clean the city by removing wild plants.</p>
@@ -167,13 +171,13 @@ body { line-height:1.6; background:#f5f5f5; overflow-y:auto; scroll-behavior: sm
     <div class="reflection fade" style="transition-delay:0.2s;">
         <h3> Inspirational Portfolio About Me</h3>
         <p>I am Zhaira H. Abion. 1st year college taking Bachelor of Science in Computer Science at Tangub City Global College.</p>
-        <p>I've been in cloud 9 for year and months now with the person I met in senior high school. </p>
+        <p>I've been in cloud 9 for a year and months now with the person I met in senior high school. </p>
     </div>
     <div class="reflection fade" style="transition-delay:0.4s;">
-        <img src="d5.jpg" alt="Image" class="profile-image">
-        <img src="d7.jpg" alt="Image" class="profile-image">
-        <img src="d8.jpg" alt="Image" class="profile-image">
-        <img src="d9.jpg" alt="Image" class="profile-image">
+        <img src="images/d5.jpg" alt="Image" class="profile-image">
+        <img src="images/d7.jpg" alt="Image" class="profile-image">
+        <img src="images/d8.jpg" alt="Image" class="profile-image">
+        <img src="images/d9.jpg" alt="Image" class="profile-image">
         <p>My Goal is to improve myself physically, emotionally, and mentally. I also want to improve my skills for the reason that I am taking computer science which needs focus and determination. I hope to improve my relationship with the people around me, giving them attention, love, and care they deserve from me. With him, I let God enter my life after all the things that happened in my past. I want to get closer to God and build my faith.</p>
     </div>
     <div class="nav-buttons">
