@@ -116,9 +116,13 @@ body { line-height:1.6; background:#f5f5f5; overflow-y:auto; scroll-behavior: sm
 /* Scroll Animations */
 .fade { opacity:0; transform: translateY(40px); transition: all 0.8s ease; }
 .fade.show { opacity:1; transform: translateY(0); }
+
+/* Lock: hide all slides except the login slide until user logs in */
+body.locked { overflow:hidden; }
+body.locked .slide:not(#loginSlide) { display: none; }
 </style>
 </head>
-<body>
+<body class="locked">
 
 <!-- LOGIN -->
 <div class="slide" id="loginSlide">
@@ -208,7 +212,7 @@ body { line-height:1.6; background:#f5f5f5; overflow-y:auto; scroll-behavior: sm
     </div>
     <div class="nav-buttons">
         <button onclick="scrollToSlide('Educationalslide')">Previous</button>
-        <button onclick="scrollToSlide('loginSlide')">Logout</button>
+        <button onclick="logout()">Logout</button>
     </div>
 </div>
 
@@ -219,6 +223,8 @@ document.getElementById('loginForm').addEventListener('submit', function(e){
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     if(username && password){
+        /* Unlock the site so other slides become visible, then navigate */
+        document.body.classList.remove('locked');
         scrollToSlide('personalSlide');
     } else { alert('Please enter username and password'); }
 });
@@ -241,6 +247,11 @@ function checkFade(){
     });
 }
 checkFade();
+/* Logout: re-lock the site and return to the login slide */
+function logout(){
+    document.body.classList.add('locked');
+    scrollToSlide('loginSlide');
+}
 </script>
 </body>
 </html>
